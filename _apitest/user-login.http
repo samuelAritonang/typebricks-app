@@ -1,0 +1,8 @@
+### Login User
+
+POST https://eventmakers-api.vercel.app/api/auth/login
+
+{
+    "email": "",
+    "password": ""
+}

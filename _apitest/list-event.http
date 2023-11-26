@@ -1,0 +1,33 @@
+### List Events
+
+GET https://eventmakers-api.vercel.app/api/event
+
+
+### List Single Events
+
+GET https://eventmakers-api.vercel.app/api/event/:id
+
+
+### Create Events
+
+POST https://eventmakers-api.vercel.app/api/event
+
+{
+    "name": "",
+    "description": "",
+    "location": "",
+    "date": "",
+    "authorId": ""
+}
+
+
+### Join Events
+
+POST https://eventmakers-api.vercel.app/api/join-event
+
+{
+    "name": "",
+    "email": "",
+    "phone": "",
+    "eventId": ""
+}
