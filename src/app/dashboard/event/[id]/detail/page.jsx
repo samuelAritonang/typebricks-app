@@ -1,35 +1,24 @@
 async function getDetailEvent(id) {
+  const res = await fetch(
+    `https://eventmakers-api.vercel.app/api/events/${id}`
+  );
 
-    const res = await fetch(`https://dummyjson.com/products/${id}`)
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
-
-    if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        console.log(res)
-    }
-
-    return await res.json()
-
+  return await res.json();
 }
 
 export default async function DetailProductPage({ params }) {
+  const { id } = params;
+  const data = await getDetailEvent(id);
 
-    console.log(params)
-
-    const { id } = params
-
-    const data = await getDetailEvent(id)
-
-    return (
-        <>
-            <p>Title</p>
-            <input className="border" type="text" value={data.title}></input>
-            <p>Price</p>
-            <input className="border" type="number" value={data.price}></input>
-            <button>
-                Update
-            </button>
-        </>
-    )
+  return (
+    <>
+      <p>Event Name</p>
+      <input className="border" type="text" value={data.data.name}></input>
+      <p>Event Location</p>
+      <input className="border" type="text" value={data.data.location}></input>
+      <p>Event Date</p>
+      <input className="border" type="text" value={data.data.date}></input>
+      <button>Update</button>
+    </>
+  );
 }
