@@ -1,4 +1,5 @@
-import { Button, Input, Link } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
+import Link from "next/link";
 
 export const Login = () => {
   return (

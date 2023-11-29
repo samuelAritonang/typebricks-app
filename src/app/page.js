@@ -1,9 +1,5 @@
-"use client";
-
-import { Button, Input, Link, NextUIProvider } from "@nextui-org/react";
-import { EventCard } from "@/component/EventCard";
-import { Register } from "./(auth)/components/Register";
-import { Login } from "./(auth)/components/Login";
+import { Button, Input } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function Page() {
   return (

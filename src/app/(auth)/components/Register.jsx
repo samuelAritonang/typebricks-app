@@ -1,4 +1,5 @@
-import { Link, Button, Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
+import Link from "next/link";
 
 export const Register = () => {
   return (
