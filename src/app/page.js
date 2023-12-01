@@ -1,5 +1,9 @@
+"use client";
+
 import { Button, Input } from "@nextui-org/react";
+import { data } from "autoprefixer";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   return (
