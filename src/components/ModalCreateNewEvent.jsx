@@ -35,6 +35,7 @@ export default function ModelCreateNewEvent() {
           description: description,
           location: location,
           date: date,
+          image: image,
           authorId: "d0ef327c-e6c9-4bb3-8fd2-f8b83171f91a",
         }),
       });
@@ -55,7 +56,8 @@ export default function ModelCreateNewEvent() {
       <div className="mb-5">
         <button
           onClick={() => setIsShow(true)}
-          className="border-2 rounded-full bg-orange-300 px-3 py-1"
+          type="button"
+          className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           Create New Event
         </button>
@@ -75,6 +77,7 @@ export default function ModelCreateNewEvent() {
               <h2 className="text-xl font-semibold text-black">
                 Create Your Event
               </h2>
+
               <button
                 onClick={() => setIsShow(false)}
                 type="button"
@@ -103,6 +106,8 @@ export default function ModelCreateNewEvent() {
               <div className="p-4">
                 <div className="relative z-0 w-full mb-5 group">
                   <input
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
                     type="text"
                     name="floating_name"
                     className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
@@ -117,6 +122,8 @@ export default function ModelCreateNewEvent() {
                 </div>
                 <div className="relative z-0 w-full mb-5 group">
                   <input
+                    onChange={(e) => setDescription(e.target.value)}
+                    value={description}
                     type="text"
                     name="floating_description"
                     className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
@@ -131,6 +138,8 @@ export default function ModelCreateNewEvent() {
                 </div>
                 <div className="relative z-0 w-full mb-5 group">
                   <input
+                    onChange={(e) => setLocation(e.target.value)}
+                    value={location}
                     type="text"
                     name="floating_location"
                     className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
@@ -146,6 +155,8 @@ export default function ModelCreateNewEvent() {
                 <div className="grid md:grid-cols-2 md:gap-6">
                   <div className="relative z-0 w-full mb-5 group">
                     <input
+                      onChange={(e) => setDate(e.target.value)}
+                      value={date}
                       type="date"
                       name="floating_date"
                       className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
@@ -161,6 +172,8 @@ export default function ModelCreateNewEvent() {
                 </div>
                 <div className="relative z-0 w-full mb-5 group">
                   <input
+                    onChange={(e) => setImage(e.target.value)}
+                    value={image}
                     type="text"
                     name="floating_image"
                     id="floating_image"
@@ -185,118 +198,6 @@ export default function ModelCreateNewEvent() {
               </div>
             </>
           </form>
-
-          {/* <div className="relative bg-orange-600 rounded-lg shadow">
-            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-              <h3 className="text-xl font-semibold text-black">
-                Create Your Event
-              </h3>
-              <button
-                onClick={() => setIsShow(false)}
-                type="button"
-                className="text-black bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                data-modal-hide="default-modal"
-              >
-                <svg
-                  className="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-                <span className="sr-only">Close modal</span>
-              </button>
-            </div>
-            <>
-              <div className="p-4">
-                <div className="flex gap-2 mb-2">
-                  <div>
-                    <p>Event Name</p>
-                  </div>
-                  <div>
-                    <input
-                      onChange={(e) => setName(e.target.value)}
-                      value={name}
-                      className="border px-2"
-                      type="text"
-                      placeholder="Name of your event."
-                    ></input>
-                  </div>
-                </div>
-                <div className="flex gap-2 mb-2">
-                  <div>
-                    <p>Event Description</p>
-                  </div>
-                  <div>
-                    <textarea
-                      rows={3}
-                      onChange={(e) => setDescription(e.target.value)}
-                      value={description}
-                      className="border px-2"
-                      placeholder="Description of your event."
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="flex gap-2 mb-2">
-                  <div>
-                    <p>Location</p>
-                  </div>
-                  <div>
-                    <input
-                      onChange={(e) => setLocation(e.target.value)}
-                      value={location}
-                      className="border px-2"
-                      type="text"
-                      placeholder="Location your event."
-                    ></input>
-                  </div>
-                </div>
-                <div className="flex gap-2 mb-2">
-                  <div>
-                    <p>Event Date</p>
-                  </div>
-                  <div>
-                    <input
-                      onChange={(e) => setDate(e.target.value)}
-                      value={date}
-                      className="border px-2"
-                      type="date"
-                    ></input>
-                  </div>
-                </div>
-                <div className="flex gap-2 mb-2">
-                  <div>
-                    <p>Thumbnail</p>
-                  </div>
-                  <div>
-                    <input
-                      onChange={(e) => setImage(e.target.value)}
-                      value={image}
-                      className="border px-2"
-                      type="text"
-                      placeholder="Put your image URL here."
-                    ></input>
-                  </div>
-                </div>
-
-                <button
-                  className="border-2 px-2 rounded-md"
-                  onClick={createNewEvent}
-                >
-                  Add
-                </button>
-                <p className="text-red-500">{error}</p>
-              </div>
-            </>
-          </div> */}
         </div>
       </div>
     </>

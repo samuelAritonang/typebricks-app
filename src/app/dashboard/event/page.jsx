@@ -22,53 +22,49 @@ export default async function Page() {
           <div className="overflow-hidden">
             <ModelCreateNewEvent></ModelCreateNewEvent>
 
-            <table className="w-full text-left text-xs">
-              <thead className="border bg-orange-200 font-medium">
-                <tr>
-                  <th scope="col" className="px-6 py-2">
-                    Name
-                  </th>
-                  <th scope="col" className="px-6 py-2">
-                    Description
-                  </th>
-                  <th scope="col" className="px-6 py-2">
-                    Location
-                  </th>
-                  <th scope="col" className="px-6 py-2">
-                    Date
-                  </th>
-                  <th scope="col" className="px-6 py-2">
-                    Image
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.data.map((value, index) => {
-                  return (
-                    <tr
-                      key={index}
-                      className="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
-                    >
-                      <td className="whitespace-nowrap px-6 py-2">
+            <div className="flex flex-wrap justify-center">
+              {data.data.map((value, index) => {
+                let img = value.image;
+                if (img === null || img === "image.png" || img === "") {
+                  img =
+                    "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+                } else {
+                  img = value.image;
+                }
+                return (
+                  <div
+                    key={index}
+                    className="flex max-w-[16rem] flex-col overflow-hidden rounded-xl bg-orange-100 bg-clip-border text-gray-700 shadow-md m-6"
+                  >
+                    <div className="m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
+                      <img
+                        className="w-full h-150"
+                        src={`${img}`}
+                        alt={`Eventbricks ${value.name}`}
+                      />
+                    </div>
+                    <div className="p-3">
+                      <h4 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                         {value.name}
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-2">
+                      </h4>
+                      <p className="block mt-2 font-sans text-lg antialiased font-normal leading-relaxed text-gray-700">
                         {value.description}
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-2">
-                        {value.location}
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-2">
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between p-3">
+                      <div className="flex items-center -space-x-3">
+                        <p className="block font-sans text-md antialiased font-normal leading-relaxed text-inherit">
+                          {value.location}
+                        </p>
+                      </div>
+                      <p className="block font-sans text-md antialiased font-normal leading-relaxed text-inherit">
                         {value.date}
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-2">
-                        {value.image}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
