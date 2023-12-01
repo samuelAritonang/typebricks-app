@@ -13,6 +13,8 @@ async function getListEvent() {
 }
 
 export default async function Page() {
+  const defaultImage =
+    "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
   const data = await getListEvent();
 
   return (
@@ -24,13 +26,12 @@ export default async function Page() {
 
             <div className="flex flex-wrap justify-center">
               {data.data.map((value, index) => {
-                let img = value.image;
-                if (img === null || img === "image.png" || img === "") {
-                  img =
-                    "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-                } else {
-                  img = value.image;
-                }
+                // let img = value.image;
+                // if (img === null || img === "image.png" || img === "") {
+                //   img = defaultImage;
+                // } else {
+                //   img = value.image;
+                // }
                 return (
                   <div
                     key={index}
@@ -39,7 +40,14 @@ export default async function Page() {
                     <div className="m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
                       <img
                         className="w-full h-150"
-                        src={`${img}`}
+                        src={
+                          value.image === null ||
+                          value.image === "image.png" ||
+                          value.image === ""
+                            ? defaultImage
+                            : value.image
+                        }
+                        // src={`${img}`}
                         alt={`Eventbricks ${value.name}`}
                       />
                     </div>

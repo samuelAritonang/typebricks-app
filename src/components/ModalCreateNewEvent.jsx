@@ -195,6 +195,7 @@ export default function ModelCreateNewEvent() {
                 >
                   Submit
                 </button>
+                <p className="text-red-500 text-md">{error}</p>
               </div>
             </>
           </form>
