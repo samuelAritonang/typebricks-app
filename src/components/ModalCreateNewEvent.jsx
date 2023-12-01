@@ -53,7 +53,7 @@ export default function ModelCreateNewEvent() {
 
   return (
     <>
-      <div className="mb-5">
+      <div className="m-auto">
         <button
           onClick={() => setIsShow(true)}
           type="button"
