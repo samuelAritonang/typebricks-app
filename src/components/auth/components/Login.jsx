@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { Input, Button } from "@nextui-org/react";
-// import Image from "next/image";
-// import logo from "../../../../public/eventbricks.png";
+import Image from "next/image";
+import logo from "../../../../public/eventbricks.png";
 import Link from "next/link";
 import { useLogin } from "../hooks/useLogin";
 
@@ -11,13 +11,13 @@ export const Login = () => {
 
     return (
         <main className="space-y-3">
-            {/* <Image
+            <Image
                 src={logo}
                 width={800}
                 height={800}
                 alt="Picture of the author"
-            /> */}
-            <h1 className="text-3xl font-bold mb-12">Create an account</h1>
+            />
+            <h1 className="text-2xl font-bold mb-12">Create an account</h1>
 
             
             <Input
@@ -29,6 +29,7 @@ export const Login = () => {
                 color="secondary"
                 onChange={handleChange}
                 isRequired
+                radius = "full"
             />
             <Input
                 name="password"
@@ -39,6 +40,8 @@ export const Login = () => {
                 color="secondary"
                 onChange={handleChange}
                 isRequired
+                radius = "full"
+
             />
             <Button
                 radius="full"
