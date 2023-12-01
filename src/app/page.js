@@ -1,21 +1,27 @@
+import { UserIcon } from "@/component/UserIcon";
 import EventList from "@/component/events/EventList";
-import { Button, Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="">
-      <header className="p-4 bg-violet-700">
-        <div className="flex text-4xl justify-center text-white m-4">
+    <div className="max-w-7xl mx-auto p-4">
+      <header className="p-4 bg-white">
+        {/* <div className="flex text-4xl justify-center text-white m-4">
           EventBricks
-        </div>
+        </div> */}
         <nav className="flex justify-between items-center">
           <div>
             <Image src={"/eventbricks.png"} width={200} height={100} />
           </div>
           <Link href="/login">
-            <Button color="primary">Login</Button>
+            <Button
+              startContent={<UserIcon />}
+              className="bg-violet-700 text-white px-2"
+            >
+              Login
+            </Button>
           </Link>
         </nav>
       </header>
