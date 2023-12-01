@@ -61,7 +61,7 @@ export const Register = () => {
             <div className="flex gap-1">
                 <span className="">Already have an account?</span>
                 <Link
-                    href="/"
+                    href="/login"
                     className="text-blue-600 hover:underline cursor-pointer"
                 >
                     Login
