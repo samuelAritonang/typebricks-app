@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation"
+import { redirect } from "next/navigation";
 
-export default function Page(){
-  redirect("/dashboard/event")
+export default function Page() {
+  return <div></div>;
 }
