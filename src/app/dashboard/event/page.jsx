@@ -25,16 +25,10 @@ export default async function Page() {
             <ModelCreateNewEvent></ModelCreateNewEvent>
             <div className="flex flex-wrap justify-center">
               {data.data.map((value, index) => {
-                // let img = value.image;
-                // if (img === null || img === "image.png" || img === "") {
-                //   img = defaultImage;
-                // } else {
-                //   img = value.image;
-                // }
                 return (
                   <div
                     key={index}
-                    className="flex max-w-[16rem] flex-col overflow-hidden rounded-xl bg-orange-100 bg-clip-border text-gray-700 shadow-md m-6"
+                    className="flex max-w-[16rem] flex-col overflow-hidden rounded-xl bg-purple-200 bg-clip-border text-gray-700 shadow-md m-6"
                   >
                     <div className="m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
                       <img
@@ -46,7 +40,6 @@ export default async function Page() {
                             ? defaultImage
                             : value.image
                         }
-                        // src={`${img}`}
                         alt={`Eventbricks ${value.name}`}
                       />
                     </div>
