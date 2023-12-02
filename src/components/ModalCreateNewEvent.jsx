@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ActionRevalidate from "@/app/action";
+import ActionRevalidate from "@/app/actionValidate";
 
 export default function ModelCreateNewEvent() {
   const [isShow, setIsShow] = useState(false);
@@ -13,15 +13,16 @@ export default function ModelCreateNewEvent() {
   const [error, setError] = useState("");
 
   async function createNewEvent() {
-    if (name === "") {
-      setError("Title cannot be empty.");
-    } else if (description === "") {
-      setError("Description cannot be empty.");
-    } else if (location === "") {
-      setError("Location cannot be empty.");
-    } else if (date === "") {
-      setError("Date cannot be empty.");
-    } else if (image === "") {
+    // if (name === "") {
+    //   setError("Title cannot be empty.");
+    // } else if (description === "") {
+    //   setError("Description cannot be empty.");
+    // } else if (location === "") {
+    //   setError("Location cannot be empty.");
+    // } else if (date === "") {
+    //   setError("Date cannot be empty.");
+    // } else
+    if (image === "") {
       image ===
         "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
     } else {
@@ -112,6 +113,7 @@ export default function ModelCreateNewEvent() {
                     name="floating_name"
                     className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
                     placeholder=" "
+                    required
                   />
                   <label
                     htmlFor="floating_name"
@@ -128,6 +130,7 @@ export default function ModelCreateNewEvent() {
                     name="floating_description"
                     className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
                     placeholder=" "
+                    required
                   />
                   <label
                     htmlFor="floating_description"
@@ -144,6 +147,7 @@ export default function ModelCreateNewEvent() {
                     name="floating_location"
                     className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
                     placeholder=" "
+                    required
                   />
                   <label
                     htmlFor="floating_location"
@@ -161,6 +165,7 @@ export default function ModelCreateNewEvent() {
                       name="floating_date"
                       className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-white appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer"
                       placeholder=" "
+                      required
                     />
                     <label
                       htmlFor="floating_date"
@@ -184,7 +189,7 @@ export default function ModelCreateNewEvent() {
                     htmlFor="floating_image"
                     className="peer-focus:font-medium absolute text-sm text-white dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
-                    Thumbnail of Event
+                    Thumbnail of Event (Input your URL image/picture.)
                   </label>
                 </div>
 
@@ -195,7 +200,7 @@ export default function ModelCreateNewEvent() {
                 >
                   Submit
                 </button>
-                <p className="text-red-500 text-lg mt-3">{error}</p>
+                {/* <p className="text-red-500 text text-lg mt-3">{error}</p> */}
               </div>
             </>
           </form>
